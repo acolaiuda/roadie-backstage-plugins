@@ -95,7 +95,7 @@ export const createArgoCdResources = (config: Config, logger: Logger) => {
         appName: ctx.input.appName,
         projectName: ctx.input.projectName
           ? ctx.input.projectName
-          : ctx.input.appName,
+          : "default",
         namespace: ctx.input.namespace,
         sourceRepo: ctx.input.repoUrl,
         sourcePath: ctx.input.path,

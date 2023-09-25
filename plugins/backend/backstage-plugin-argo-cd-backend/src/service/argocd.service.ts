@@ -310,13 +310,14 @@ export class ArgoService implements ArgoServiceApi {
       throw new Error(responseData.message);
     } else if (resp.status === 404) {
       return resp.json();
-    } else if (
-      JSON.stringify(responseData).includes(
-        'existing project spec is different',
-      )
-    ) {
-      throw new Error('Duplicate project detected. Cannot overwrite existing.');
     }
+      // } else if (
+    //   JSON.stringify(responseData).includes(
+    //     'existing project spec is different',
+    //   )
+    // ) {
+    //   throw new Error('Duplicate project detected. Cannot overwrite existing.');
+    // }
     return responseData;
   }
 
