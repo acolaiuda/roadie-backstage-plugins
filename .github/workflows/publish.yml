@@ -119,4 +119,4 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_RELEASE_WEBHOOK }}
           TAG_NAME: ${{ steps.create_tag.outputs.tag_name }}
         with:
-          args: 'A new release has been published! https://github.com/RoadieHQ/roadie-backstage-plugins/releases/tag/{{TAG_NAME}}'
+          args: 'A new release has been published! https://github.com/acolaiuda/roadie-backstage-plugins/releases/tag/{{TAG_NAME}}'
