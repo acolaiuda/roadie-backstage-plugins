@@ -1,6 +1,6 @@
 {
   "name": "@andrea.colaiuda/scaffolder-backend-argocd",
-  "version": "1.1.18",
+  "version": "1.1.19",
   "main": "src/index.ts",
   "types": "src/index.ts",
   "license": "Apache-2.0",
@@ -34,7 +34,7 @@
     "@backstage/backend-common": "^0.19.4",
     "@backstage/config": "^1.0.8",
     "@backstage/plugin-scaffolder-backend": "^1.16.5",
-    "@roadiehq/backstage-plugin-argo-cd-backend": "^2.11.2",
+    "@andrea.colaiuda/backstage-plugin-argo-cd-backend": "^2.11.5",
     "winston": "^3.2.1"
   },
   "devDependencies": {
