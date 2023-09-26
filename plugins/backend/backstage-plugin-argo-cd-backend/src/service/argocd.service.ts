@@ -788,23 +788,25 @@ export class ArgoService implements ArgoServiceApi {
       matchedArgoInstance.token ||
       (await this.getArgoToken(matchedArgoInstance));
 
-    await this.createArgoProject({
-      baseUrl: matchedArgoInstance.url,
-      argoToken: token,
-      projectName: projectName ? projectName : appName,
-      namespace,
-      sourceRepo,
-    });
+    if (projectName !== "default") {
+      await this.createArgoProject({
+        baseUrl: matchedArgoInstance.url,
+        argoToken: token,
+        projectName: projectName,
+        namespace,
+        sourceRepo,
+      });
+    }
 
     await this.createArgoApplication({
       baseUrl: matchedArgoInstance.url,
       argoToken: token,
       appName,
-      projectName: projectName ? projectName : appName,
+      projectName: projectName ? projectName : "default",
       namespace,
       sourceRepo,
       sourcePath,
-      labelValue: labelValue ? labelValue : appName,
+      labelValue: labelValue ? labelValue : "default",
     });
 
     return true;

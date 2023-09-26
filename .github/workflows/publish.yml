@@ -91,13 +91,13 @@ jobs:
         shell: bash
         run: |
           echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" >> .npmrc
-          echo "_auth = ${{ secrets.NPM_CONFIG__AUTH }}" >> .npmrc
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
           echo "always-auth = true" >> .npmrc
       # Publishes current version of packages that are not already present in the registry.
       - name: Run publish
         run: |
-          git config --global user.email "bot@roadie.io"
-          git config --global user.name "roadie-bot"
+          git config --global user.email "bot@neen.com"
+          git config --global user.name "neen-bot"
           lerna publish from-package --yes --no-verify-access
       # Creates the next available tag with format "release-<year>-<month>-<day>[.<n>]"
       - name: Create a release tag
