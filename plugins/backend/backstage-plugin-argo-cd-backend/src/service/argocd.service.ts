@@ -806,7 +806,7 @@ export class ArgoService implements ArgoServiceApi {
       namespace,
       sourceRepo,
       sourcePath,
-      labelValue: labelValue ? labelValue : "default",
+      labelValue: labelValue ? labelValue : appName,
     });
 
     return true;
