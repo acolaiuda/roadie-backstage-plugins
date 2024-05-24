@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { ArgoService } from '@andrea.colaiuda/backstage-plugin-argo-cd-backend';
 import { Config } from '@backstage/config';
 import { createTemplateAction } from '@backstage/plugin-scaffolder-backend';
-import { ArgoService } from '@andrea.colaiuda/backstage-plugin-argo-cd-backend';
 import { Logger } from 'winston';
 
 export const createArgoCdResources = (config: Config, logger: Logger) => {
@@ -68,6 +68,12 @@ export const createArgoCdResources = (config: Config, logger: Logger) => {
             description:
               'The path of the resources Argo CD will watch in the repository mentioned',
           },
+          createNamespace: {
+            type: 'string',
+            title: 'create application namespace',
+            description: 
+              'Set the flag to create Kubernetes Namespace'
+          },
           labelValue: {
             type: 'string',
             title: 'Label Value',
@@ -97,6 +103,7 @@ export const createArgoCdResources = (config: Config, logger: Logger) => {
           ? ctx.input.projectName
           : "default",
         namespace: ctx.input.namespace,
+        createNamespace: ctx.input.crateNamespace,
         sourceRepo: ctx.input.repoUrl,
         sourcePath: ctx.input.path,
         labelValue: ctx.input.labelValue

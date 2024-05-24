@@ -1,0 +1,12 @@
+image: node:lts
+
+stages:
+- deploy
+
+deploy:
+  stage: deploy
+  script:
+  - yarn install
+  - yarn run tsc
+  - yarn run build
+  - yarn publish
